@@ -1,0 +1,23 @@
+{
+    "shop1" : {
+        "id" : 1,
+        "name" : "Guido's Groceria",
+        "street_address" : "665 Swanston St",
+        "suburb" : "Carlton",
+        "postcode" : "3053"
+    },
+    "shop2" : {
+        "id" : 2,
+        "name" : "Vicky's Sandwiches",
+        "street_address" : "730 Swanston St",
+        "suburb" : "Carlton",
+        "postcode" : "3053"
+    },
+    "shop3" : {
+        "id" : 3,
+        "name" : "Charlie's Donuts",
+        "street_address" : "34 William St",
+        "suburb" : "Melbourne",
+        "postcode" : "3000"
+    }
+}
