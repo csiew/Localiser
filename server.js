@@ -46,8 +46,8 @@ app.delete('/deleteShop', function (req, res) {
         delete data["shop" + 2];
         console.log(data);
         res.end(JSON.stringify(data));
-    })
-})
+    });
+});
 
 var server = app.listen(8081, function () {
     var host = server.address().address;
