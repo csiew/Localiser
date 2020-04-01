@@ -15,6 +15,6 @@ CREATE TABLE shop_category(
 
 CREATE TABLE user_account(
 	username			VARCHAR(128)		PRIMARY KEY,
-	date_added			DATE
+	date_added			DATE,
 	date_last_accessed	DATE
 );
