@@ -1,6 +1,19 @@
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
 var fs = require("fs");
+var app = express();
+const port = 3000;
+
+app.use(bodyParser.json())
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+)
+
+app.listen(port, () => {
+    console.log(`Localiser service running on port ${port}.`);
+});
 
 var shop = {
     "shop4" : {
@@ -11,6 +24,12 @@ var shop = {
         "postcode" : "3053"
     }
 }
+
+app.get('/info', (request, response) => {
+    response.json({
+        info: 'Localiser - built with NodeJS, Express, ReactJS, and a little caffeine.'
+    });
+});
 
 app.get('/listShops', function (req, res) {
     fs.readFile(__dirname + "/" + "testdata/shops.json", 'utf8', function (err, data) {
@@ -26,8 +45,8 @@ app.get('/:id', function (req, res) {
         var shop = shops["shop" + req.params.id]
         console.log(shop);
         res.end(JSON.stringify(shop));
-    })
-})
+    });
+});
 
 app.post('/addShop', function (req, res) {
     // Check existing shops
