@@ -15,7 +15,6 @@ CREATE TABLE shop_category(
 
 CREATE TABLE user_account(
 	username			VARCHAR(128)		PRIMARY KEY,
-	organisation		VARCHAR(128)		REFERENCES organisation(id)		NOT NULL,
-	date_created		VARCHAR(128)	    NOT NULL,
-	date_last_accessed	VARCHAR(128)
+	date_added			DATE
+	date_last_accessed	DATE
 );
