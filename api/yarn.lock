@@ -250,6 +250,11 @@ negotiator@0.6.2:
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.2.tgz#feacf7ccf525a77ae9634436a64883ffeca346fb"
   integrity sha512-hZXc7K2e+PgeI1eDBe/10Ard4ekbfrrqG8Ep+8Jmf4JID2bNg7NvCPOZN+kfF574pFQI7mum2AUqDidoKqcTOw==
 
+node-postgres@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/node-postgres/-/node-postgres-0.1.4.tgz#fb84425cfb7e63227ba05bb6ea565d6208335e3c"
+  integrity sha512-mGAduzIpO4oxCdDqsDmL1KLX1g3uwuHTtk5ci+dlCLRqWUXqqac5CdAr86wa7Q1C+kPRq/Vf8uVqx1S+Wg2TCw==
+
 on-finished@~2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/on-finished/-/on-finished-2.3.0.tgz#20f1336481b083cd75337992a16971aa2d906947"
