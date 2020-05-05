@@ -3,7 +3,9 @@ CREATE TABLE roles(
 );
 
 CREATE TABLE account(
-	username		VARCHAR(128)		PRIMARY KEY,
-	role_id			VARCHAR(64)			REFERENCES roles(role_id),
-	password		VARCHAR(64)			NOT NULL
+	id				VARCHAR(36)		PRIMARY KEY,
+	role_id			VARCHAR(64)		REFERENCES roles(role_id),
+	email			VARCHAR(128)	NOT NULL,
+	password		VARCHAR(64)		NOT NULL,
+	date_added		TIMESTAMP		WITH TIME ZONE NOT NULL DEFAULT NOW()
 );

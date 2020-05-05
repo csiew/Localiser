@@ -23,3 +23,4 @@ app.get('/info', (request, response) => {
 });
 
 app.get('/users', db.getUsers);
+app.post('/users', db.createUser);
