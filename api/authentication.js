@@ -1,4 +1,4 @@
-import db_pool from './dbPool.js';
+import db_pool from './db_pool.js';
 import { v4 as uuidv4 } from 'uuid';
 
 // saveUserProfileToLocal

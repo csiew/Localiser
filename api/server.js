@@ -1,6 +1,13 @@
+// LIBRARIES AND FRAMEWORKS
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
+import connectPgSimple from 'connect-pg-simple';
+
+// DATABASE CONNECTIVITY
+import db_pool from './db_pool.js';
+
+// QUERIES or VIEWS
 import localiser_auth from './authentication.js';
 
 const app = express();
@@ -18,6 +25,8 @@ const {
 } = process.env;
 
 const IN_PROD = NODE_ENV === 'production';
+
+const pgSession = connectPgSimple(session);
 
 
 // PARSING
@@ -37,6 +46,10 @@ app.use(
         resave: false,
         saveUninitialized: false,
         secret: SESS_SECRET,
+        store: new pgSession({
+            pool: db_pool.AuthPool,     // Connection pool (which database)
+            tableName: 'session',       // Specific session store table
+        }),
         cookie: {
             maxAge: SESS_LIFETIME,
             sameSite: true,             // default: 'strict'
@@ -128,9 +141,11 @@ app.get('/dashboard', redirectLogin, (request, response) => {
     `)
 });
 
+// For development purposes only.
 app.get('/users', localiser_auth.getUsers);
 
 app.get('/login', redirectHome, (request, response) => {
+    console.log(request.sessionID);
     response.send(`
         <form method='post' action='/login'>
             <input type='email' name='email' placeholder='Email' required />
