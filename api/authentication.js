@@ -77,13 +77,14 @@ const createUser = (request, response) => {
                 console.log('Unable to generate user profile');
                 return response.redirect('/signup');
             }
-            
+
             // Ensure account has been created, then login the user.
             db_pool.AuthPool.query(`SELECT * FROM account WHERE email='${email}'`, (error, results) => {
                 if (error) {
                     console.log('Unable to confirm new user created');
                     return response.redirect('/signup');
                 }
+                console.log('Account successfully created, logging in...');
                 request.session.userId = results.rows[0].id;
                 return response.redirect('/login');
             });

@@ -17,7 +17,7 @@ const THIRTY_DAYS = 1000 * 60 * 60 * 24 * 30;
 // PARAMETERS (modifiable by administrator)
 
 const {
-    PORT = 3000,
+    PORT = 8080,
     SESS_NAME = 'sid',
     SESS_SECRET = 'wombat koala kangaroo',
     SESS_LIFETIME = THIRTY_DAYS,      // cookie lifetime for auth

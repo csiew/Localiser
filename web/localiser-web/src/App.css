@@ -1,0 +1,31 @@
+:root {
+    --FONT-FAMILY: Helvetica, Arial, sans-serif;
+    --BG-COLOR: white;
+    --BG-COLOR-HEADER: whitesmoke;
+    --FG-COLOR: black;
+    --LINK-COLOR: crimson;
+}
+
+html, body {
+    display: flex;
+    flex-flow: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.25;
+    font-size: 16px;
+    font-family: var(--FONT-FAMILY);
+    background: var(--BG-COLOR);
+    color: var(--FG-COLOR);
+}
+
+a {
+    color: var(--LINK-COLOR);
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
