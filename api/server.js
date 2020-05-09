@@ -145,7 +145,6 @@ app.get('/dashboard', redirectLogin, (request, response) => {
 app.get('/users', localiser_auth.getUsers);
 
 app.get('/login', redirectHome, (request, response) => {
-    console.log(request.sessionID);
     response.send(`
         <form method='post' action='/login'>
             <input type='email' name='email' placeholder='Email' required />
