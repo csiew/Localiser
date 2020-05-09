@@ -64,6 +64,7 @@ const createUser = (request, response) => {
     console.log('Generating authentication profile...');
     db_pool.AuthPool.query(`INSERT INTO account (id, role_id, email, password) VALUES ('${id}', 'STANDARD', '${email}', '${encryptedPassword}')`, (error, result) => {
         if (error) {
+            console.log('Unable to generate authentication profile');
             return response.redirect('/signup');
         }
         console.log(result.rows[0]);
@@ -73,13 +74,14 @@ const createUser = (request, response) => {
         console.log('Generating user metadata profile...');
         db_pool.CorePool.query(`INSERT INTO user_account (id, email, given_name, family_name) VALUES ('${id}', '${email}', '${givenName}', '${familyName}')`, (error, result) => {
             if (error) {
+                console.log('Unable to generate user profile');
                 return response.redirect('/signup');
             }
-            console.log(result.rows[0]);
-
+            
             // Ensure account has been created, then login the user.
             db_pool.AuthPool.query(`SELECT * FROM account WHERE email='${email}'`, (error, results) => {
                 if (error) {
+                    console.log('Unable to confirm new user created');
                     return response.redirect('/signup');
                 }
                 request.session.userId = results.rows[0].id;
@@ -105,7 +107,8 @@ const login = (request, response) => {
             } else {
                 console.log(`Results found: ${results.rows.length}`);
                 if (results.rows.length == 1 && results.rows[0].email === email) {
-                    bcrypt.compareSync(password, results.rows[0].password, (error, same) => {
+                    console.log("Account found with matching email, now comparing password...");
+                    bcrypt.compare(password, results.rows[0].password, (error, same) => {
                         if (error) {
                             console.log('Unable to login');
                             return response.redirect('/login');

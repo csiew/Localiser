@@ -177,6 +177,7 @@ app.post('/logout', redirectLogin, (request, response) => {
         if (error) {
             return response.redirect('/dashboard');
         }
+        console.log("Logged out");
         response.clearCookie(SESS_NAME);
         response.redirect('/');
     });
