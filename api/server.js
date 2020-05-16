@@ -115,7 +115,7 @@ app.get('/', redirectHome, (request, response) => {
             `}
         </body>
         </html>
-    `)
+    `);
 });
 
 app.get('/dashboard', redirectLogin, (request, response) => {
@@ -138,7 +138,7 @@ app.get('/dashboard', redirectLogin, (request, response) => {
                 </form>
         </body>
         </html>
-    `)
+    `);
 });
 
 // For development purposes only.
@@ -152,7 +152,7 @@ app.get('/login', redirectHome, (request, response) => {
             <input type='submit' />
         </form>
         Don't have an account? <a href='/signup'>Sign Up</a>
-    `)
+    `);
 });
 
 app.get('/signup', redirectHome, (request, response) => {
@@ -165,7 +165,7 @@ app.get('/signup', redirectHome, (request, response) => {
             <input type='submit' />
         </form>
         Already have an account? <a href='/login'>Login</a>
-    `)
+    `);
 });
 
 app.post('/login', redirectHome, localiser_auth.login);

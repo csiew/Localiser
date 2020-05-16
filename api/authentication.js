@@ -27,9 +27,9 @@ const saveUserProfileToLocal = (request, response, next) => {
 // getUsers
 // type: GET
 const getUsers = (request, response) => {
-    db_pool.CorePool.query('SELECT * FROM user_account ORDER BY username ASC', (error, results) => {
+    db_pool.CorePool.query('SELECT * FROM user_account ORDER BY date_added ASC', (error, results) => {
         if (error) {
-            throw error;
+            console.log(error);
         }
         response.status(200).json(results.rows);
     });
